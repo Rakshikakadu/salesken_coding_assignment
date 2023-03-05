@@ -24,7 +24,9 @@ This application is a REST API for generating Student Report using CRUD operatio
 
 
 ### Modules
+
 -StudentDetails Module
+
 -StudentMarksSemesterWise Module
 
 ### Functionalities
@@ -72,7 +74,7 @@ spring.jpa.show-sql=true
 * http://localhost:8888/toppers - Get top 2 toppers from the class
 
 
-### Contributors
+### Created By
 
 - [@Rakshika_Kadu](https://github.com/Rakshikakadu)
 
