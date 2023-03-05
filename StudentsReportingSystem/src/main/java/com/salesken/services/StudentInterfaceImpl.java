@@ -82,89 +82,96 @@ public class StudentInterfaceImpl implements StudentInterface {
 
 		List<StudentDetails> students = studentdetailsRepo.findAll();
 		Integer sum = 0;
-		Integer count =0;
+		Integer count = 0;
 		for (StudentDetails student : students) {
 			StudentMarksSemesterWise marks = student.getStudentMarks();
-			
-			if(marks!=null) {
-				
-				if( (subject.equals("English") || subject.equals("ENGLISH") || subject.equals("english"))) {
-					if(marks.getSemester1English() != null) {
-						sum+=marks.getSemester1English();
-					}else if(marks.getSemester2English() != null) {
-						sum+=marks.getSemester2English();
-					}else {
-						sum+=marks.getSemester1English() + marks.getSemester2English();
+
+			if (marks != null) {
+
+				if ((subject.equals("English") || subject.equals("ENGLISH") || subject.equals("english"))) {
+					if (marks.getSemester1English() != null && marks.getSemester2English() != null) {
+
+						sum += marks.getSemester1English() + marks.getSemester2English();
+
+					} else if (marks.getSemester2English() != null) {
+
+						sum += marks.getSemester1English();
+
+					} else if (marks.getSemester1English() != null) {
+						sum += marks.getSemester2English();
 					}
-					
-					
-				}else if(subject.equals("Maths") || subject.equals("MATHS") || subject.equals("maths")) {
-					
-					if(marks.getSemester1Maths() != null) {
-						sum+=marks.getSemester1Maths();
-					}else if(marks.getSemester2Maths() != null) {
-						sum+=marks.getSemester2Maths();
-					}else {
-						sum+=marks.getSemester1Maths() + marks.getSemester2Maths();
+
+				} else if (subject.equals("Maths") || subject.equals("MATHS") || subject.equals("maths")) {
+
+					if (marks.getSemester1Maths() != null && marks.getSemester2Maths() != null) {
+
+						sum += marks.getSemester1Maths() + marks.getSemester2Maths();
+
+					} else if (marks.getSemester2Maths() != null) {
+
+						sum += marks.getSemester1Maths();
+
+					} else if (marks.getSemester1Maths() != null) {
+						sum += marks.getSemester2Maths();
 					}
-					
-					
-				}else if(subject.equals("Science") || subject.equals("SCIENCE") || subject.equals("science")) {
-					
-					if(marks.getSemester1Science() != null) {
-						sum+=marks.getSemester1Science();
-					}else if(marks.getSemester2Science() != null) {
-						sum+=marks.getSemester2Science();
-					}else {
-						sum+=marks.getSemester1Science() + marks.getSemester2Science();
+
+				} else if (subject.equals("Science") || subject.equals("SCIENCE") || subject.equals("science")) {
+
+					if (marks.getSemester1Science() != null && marks.getSemester2Science() != null) {
+
+						sum += marks.getSemester1Science() + marks.getSemester2Science();
+
+					} else if (marks.getSemester2Science() != null) {
+
+						sum += marks.getSemester1Science();
+
+					} else if (marks.getSemester1Science() != null) {
+						sum += marks.getSemester2Science();
 					}
-					
+
 				}
 				count++;
 			}
-			
-			
+
 		}
-		
-		Integer Average =0;
-		Average = (sum)/count;
-		return  Average;
+
+		Integer Average = 0;
+		Average = (sum) / count;
+		return Average;
 	}
 
 	@Override
 	public Double averagePercentageOfWholeClass() {
-		
+
 		List<StudentDetails> students = studentdetailsRepo.findAll();
-		
+
 		Double sum = 0.0;
-		Double totalsum=0.0;
-		
-		for(StudentDetails student : students) {
-			
+		Double totalsum = 0.0;
+
+		for (StudentDetails student : students) {
+
 			StudentMarksSemesterWise marks = student.getStudentMarks();
-			
-			if(marks != null) {
-				if(marks.getSemester2English() == null && marks.getSemester2Maths() == null && marks.getSemester2Science()==null) {
-					
+
+			if (marks != null) {
+				if (marks.getSemester2English() == null && marks.getSemester2Maths() == null
+						&& marks.getSemester2Science() == null) {
+
 					sum += marks.getSemester1English() + marks.getSemester1Maths() + marks.getSemester1Science();
 					totalsum += 300;
-				
-				}else {
-					
+
+				} else {
+
 					sum += marks.getSemester2English() + marks.getSemester2Maths() + marks.getSemester2Science();
-					totalsum+=300;
-				
+					totalsum += 300;
+
 				}
 			}
-			
-			
-			
+
 		}
-		
-		Double percentage = (sum / totalsum)*100;
-		
+
+		Double percentage = (sum / totalsum) * 100;
+
 		return percentage;
 	}
 
-	
 }
