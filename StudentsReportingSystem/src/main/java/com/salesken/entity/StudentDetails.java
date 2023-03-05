@@ -27,6 +27,8 @@ public class StudentDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer rollno;
 	private String studentName;
+	private String email;
+	private String address;
 	private String courseName;
 	
 	
