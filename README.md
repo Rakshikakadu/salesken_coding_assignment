@@ -65,9 +65,9 @@ spring.jpa.show-sql=true
 
 * http://localhost:8888/students - Get All students
 
-* http://localhost:8888/addMarks/{id} - Add Marks with id
+* http://localhost:8888/addMarks/{id} - Add Marks with student id
 
-* http://localhost:8888/averageMarks - Calculate Average Marks Of student in a particular subject
+* http://localhost:8888/averageMarks - Calculate Average Marks Of students in a particular subject
 
 * http://localhost:8888/percentage - Calculate Average percentage of whole class
 
