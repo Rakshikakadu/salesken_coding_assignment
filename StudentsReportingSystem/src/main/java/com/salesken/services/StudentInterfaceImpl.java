@@ -174,4 +174,11 @@ public class StudentInterfaceImpl implements StudentInterface {
 		return percentage;
 	}
 
+	@Override
+	public List<StudentDetails> topTwoStudents() {
+		
+		
+		return studentdetailsRepo.topTwo();
+	}
+
 }

@@ -19,4 +19,6 @@ public interface StudentInterface {
 	
 	public Double averagePercentageOfWholeClass();
 	
+	public List<StudentDetails> topTwoStudents();
+	
 }

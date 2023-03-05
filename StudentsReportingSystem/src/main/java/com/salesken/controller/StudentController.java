@@ -53,6 +53,12 @@ public class StudentController {
 		return new ResponseEntity<Double>(studentService.averagePercentageOfWholeClass(),HttpStatus.OK);
 	}
 	
+	@GetMapping("/toppers")
+	public ResponseEntity<List<StudentDetails>> getTopTwoStudntsHandler() throws StudentDetailsException{
+		
+		return new ResponseEntity<List<StudentDetails>>(studentService.topTwoStudents(),HttpStatus.OK);
+	}
+	
 	
 	
 //	@GetMapping("/averageMarks")
