@@ -13,8 +13,10 @@ public interface StudentInterface {
 	
 	public List<StudentDetails> getAllStudents() throws StudentDetailsException;
 	
-	public int averageMarks();
+	public StudentDetails addMarksOfStudent(Integer id,StudentMarksSemesterWise sms);
 	
-	public List<StudentDetails> topTwoStudents();
+	public Integer averageStudentMarksInSubject(String subject);
+	
+	public Double averagePercentageOfWholeClass();
 	
 }

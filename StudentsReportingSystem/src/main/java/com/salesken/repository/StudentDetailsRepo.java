@@ -7,5 +7,7 @@ import com.salesken.entity.StudentDetails;
 
 @Repository
 public interface StudentDetailsRepo extends JpaRepository<StudentDetails, Integer>{
-
+	
+	
+	
 }
